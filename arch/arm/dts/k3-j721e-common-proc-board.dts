@@ -332,6 +332,18 @@
 	pinctrl-0 = <&main_mmc1_pins_default>;
 	ti,driver-strength-ohm = <50>;
 	disable-wp;
+	vmmc-supply = <&vdd_mmc1>;
+
+	/* UHS modes require 1v8 which does not work on rev 2.0 to 2.2 */
+	//vqmmc-supply = <&vdd_sd_dv_alt>;
+	ti,otap-del-sel-sdr12;
+	ti,otap-del-sel-sdr25;
+	ti,otap-del-sel-sdr50;
+	ti,otap-del-sel-sdr104;
+	ti,otap-del-sel-ddr50;
+	ti,otap-del-sel-ddr52;
+	ti,otap-del-sel-hs200;
+	ti,otap-del-sel-hs400;
 };
 
 &main_sdhci2 {
